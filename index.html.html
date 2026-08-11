@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>أغلى ما ليا ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #180020, #4b075f, #180020);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.box {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255,255,255,0.09);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 25px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 32px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+button {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    background: #ff4fa3;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#error {
+    color: #ff9bc7;
+    margin-top: 15px;
+    display: none;
+}
+
+#messagePage {
+    display: none;
+}
+
+.message {
+    font-size: 20px;
+    line-height: 2;
+    margin: 20px 0;
+}
+
+audio {
+    width: 100%;
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- شاشة الباسورد -->
+<div class="box" id="loginPage">
+
+    <h1>🔐 ادخل الباسورد</h1>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="اكتب الباسورد هنا"
+        onkeydown="if(event.key === 'Enter') checkPassword()"
+    >
+
+    <button onclick="checkPassword()">دخول ❤️</button>
+
+    <div id="error">
+        الباسورد غلط 😭
+    </div>
+
+</div>
+
+
+<!-- الرسالة -->
+<div class="box" id="messagePage">
+
+    <h1>❤️ أغلى ما ليا ❤️</h1>
+
+    <div class="message">
+        هععع قمرييي الي بموت فيها بحبك اوي ولله بجد
+        مش عايزك تزعلي من اي حاجه انتي اهم حد عندي ولله بجد
+        مش هنبعد هنبقي مع بعض لحد اخر يوم ولله
+        فكك من كله انتي الاساس و مش هيجي يوم و ابعد
+        او تزعلي مني يا روحي بحبك اويييي
+        كل داعععع معمول عشانك ولله بحبك
+    </div>
+
+    <!-- الأغنية -->
+    <audio id="song" controls preload="auto">
+        <source src="./song.mp3" type="audio/mpeg">
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
+    <p>🎵 الأغنية الخاصة بيكي ❤️</p>
+
+</div>
+
+
+<script>
+
+function checkPassword() {
+
+    const password = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    if (password === "20-10") {
+
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("messagePage").style.display = "block";
+
+        const song = document.getElementById("song");
+
+        /*
+        المتصفح ممكن يمنع التشغيل التلقائي،
+        لذلك نحاول تشغيلها بعد الضغط على زر الدخول.
+        */
+
+        song.load();
+
+        song.play().catch(function() {
+            // لو المتصفح منع التشغيل التلقائي،
+            // زر ▶️ في مشغل الأغنية هيشتغل عادي.
+        });
+
+    } else {
+
+        error.style.display = "block";
+
+    }
+}
+
+</script>
+
+</body>
+</html>
